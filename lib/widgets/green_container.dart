@@ -6,7 +6,8 @@ class GreenContainerWithActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 343,
+      width: double.infinity,
+
       height: 84,
       decoration: BoxDecoration(
         color: const Color(0xFF4CD080),

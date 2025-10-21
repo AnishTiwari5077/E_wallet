@@ -96,7 +96,7 @@ class HomeView extends StatelessWidget {
                                 Text('hello world'),
                               ],
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 50),
                             GreenContainerWithActions(), // Spacing between rows
                           ],
                         ), // Spacing between rows
@@ -110,7 +110,7 @@ class HomeView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
-                  'Payment Options',
+                  'Payment list',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
