@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PaymentItem {
-  final String title;
-  final IconData icon;
-  PaymentItem({required this.title, required this.icon});
+  final String name;
+  final String iconPath;
+  final VoidCallback onTap; // Add this line
+
+  const PaymentItem({
+    required this.name,
+    required this.iconPath,
+    required this.onTap, // Add this line
+  });
 }

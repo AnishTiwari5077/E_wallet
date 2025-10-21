@@ -1,8 +1,10 @@
+import 'package:e_wallet/models/payment_item.dart';
 import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
 import 'package:e_wallet/widgets/curved_navigation_bar.dart';
 import 'package:e_wallet/widgets/green_container.dart';
+import 'package:e_wallet/widgets/payment_grid_items.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -114,7 +116,60 @@ class HomeView extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-              //   PaymentItemsGrid(), // Widget for responsive payment items
+              PaymentItemsGrid(
+                paymentItems: [
+                  PaymentItem(
+                    name: 'a',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'b',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'c',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'd',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'e',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'f',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'g',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'h',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'i',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                  PaymentItem(
+                    name: 'j',
+                    iconPath: 'assets/icon.png',
+                    onTap: () {},
+                  ),
+                ],
+              ), // Widget for responsive payment items
             ],
           ),
         ),
