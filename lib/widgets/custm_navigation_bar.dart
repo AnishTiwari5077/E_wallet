@@ -31,6 +31,7 @@ class CurvedBottomNavBar extends StatelessWidget {
                 isActive: nav.currentIndex == 0,
               ),
               const SizedBox(width: 70), // space for FAB
+
               _buildNavItem(
                 context,
                 icon: Icons.person,
@@ -76,11 +77,10 @@ class CurvedBottomNavBar extends StatelessWidget {
 class _CurvedPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = const Color.fromARGB(255, 255, 255, 255)
-      ..style = PaintingStyle.fill
-      //  ..shadowBlurSigma = 10
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
+    final paint = Paint()..color = Colors.white;
+    // ..style = PaintingStyle.fill
+    //  ..shadowBlurSigma = 10
+    // ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 4);
 
     final path = Path()
       ..moveTo(0, 0)

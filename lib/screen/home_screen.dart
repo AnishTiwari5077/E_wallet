@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     print('HomeScreen build called1');
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: const Color.fromARGB(255, 218, 215, 204),
       extendBody: true,
       body: Consumer<NavigationProvider>(
         builder: (context, nav, child) {
