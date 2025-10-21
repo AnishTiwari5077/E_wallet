@@ -15,13 +15,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     print('HomeScreen build called1');
     return Scaffold(
+      backgroundColor: Colors.amber,
       extendBody: true,
       body: Consumer<NavigationProvider>(
         builder: (context, nav, child) {
           return IndexedStack(index: nav.currentIndex, children: screens);
         },
       ),
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: CurvedBottomNavBar(),
     );
   }
 }
