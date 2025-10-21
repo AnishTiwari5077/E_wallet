@@ -119,17 +119,17 @@ class HomeView extends StatelessWidget {
               PaymentItemsGrid(
                 paymentItems: [
                   PaymentItem(
-                    name: 'a',
+                    name: 'Electricity',
                     iconPath: 'assets/icon.png',
                     onTap: () {},
                   ),
                   PaymentItem(
-                    name: 'b',
+                    name: 'Internet',
                     iconPath: 'assets/icon.png',
                     onTap: () {},
                   ),
                   PaymentItem(
-                    name: 'c',
+                    name: 'Topup',
                     iconPath: 'assets/icon.png',
                     onTap: () {},
                   ),
@@ -155,16 +155,6 @@ class HomeView extends StatelessWidget {
                   ),
                   PaymentItem(
                     name: 'h',
-                    iconPath: 'assets/icon.png',
-                    onTap: () {},
-                  ),
-                  PaymentItem(
-                    name: 'i',
-                    iconPath: 'assets/icon.png',
-                    onTap: () {},
-                  ),
-                  PaymentItem(
-                    name: 'j',
                     iconPath: 'assets/icon.png',
                     onTap: () {},
                   ),
