@@ -2,6 +2,7 @@ import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
 import 'package:e_wallet/widgets/curved_navigation_bar.dart';
+import 'package:e_wallet/widgets/green_container.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,10 +39,85 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     print('HomeView build called');
     // Note: If you add widgets inside, ensure they are also const if possible.
-    return const Center(
-      child: Text(
-        '🏠 Welcome to Home Dashboard other file aaaaa',
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+    return Scaffold(
+      appBar: AppBar(title: Text('Responsive Layout')),
+      body: SingleChildScrollView(
+        // Allows scrolling if content overflows
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              // First section: two columns, each with two horizontal items
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset('assets/Logo.png'),
+
+                            InkWell(
+                              onTap: () {
+                                print('tapped');
+                              },
+                              child: Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                  color: const Color.fromARGB(
+                                    255,
+                                    224,
+                                    221,
+                                    221,
+                                  ),
+                                ),
+
+                                child: Image.asset(
+                                  height: 24,
+                                  width: 24,
+                                  'assets/icon.png',
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 16),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('hello world'),
+                                Text('hello world'),
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                            GreenContainerWithActions(), // Spacing between rows
+                          ],
+                        ), // Spacing between rows
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 24), // Spacing between sections
+              // Payment items section
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Payment Options',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              //   PaymentItemsGrid(), // Widget for responsive payment items
+            ],
+          ),
+        ),
       ),
     );
   }
