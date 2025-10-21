@@ -30,7 +30,7 @@ class CurvedBottomNavBar extends StatelessWidget {
                 index: 0,
                 isActive: nav.currentIndex == 0,
               ),
-              const SizedBox(width: 70), // space for FAB
+              const SizedBox(width: 70),
 
               _buildNavItem(
                 context,

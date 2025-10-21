@@ -1,7 +1,7 @@
 import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
-import 'package:e_wallet/widgets/custm_navigation_bar.dart';
+import 'package:e_wallet/widgets/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +23,10 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: CurvedBottomNavBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
