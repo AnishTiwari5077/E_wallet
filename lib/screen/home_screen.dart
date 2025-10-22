@@ -26,10 +26,6 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: CurvedBottomNavBar(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
@@ -120,12 +116,12 @@ class HomeView extends StatelessWidget {
                 paymentItems: [
                   PaymentItem(
                     name: 'Electricity',
-                    iconPath: 'assets/icon.png',
+                    iconPath: 'assets/icon/elecricity.svg',
                     onTap: () {},
                   ),
                   PaymentItem(
                     name: 'Internet',
-                    iconPath: 'assets/icon.png',
+                    iconPath: 'assets/icon/internet.svg',
                     onTap: () {},
                   ),
                   PaymentItem(

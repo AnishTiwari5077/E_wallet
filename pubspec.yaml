@@ -68,6 +68,7 @@ flutter:
   - assets/transfer.png
   - assets/topup.png
   - assets/history.png
+  - assets/icon/
 
 
   #   - images/a_dot_ham.jpeg

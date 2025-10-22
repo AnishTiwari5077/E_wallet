@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../models/payment_item.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PaymentItemsGrid extends StatelessWidget {
   final List<PaymentItem> paymentItems;
@@ -32,12 +34,15 @@ class PaymentItemsGrid extends StatelessWidget {
                 height: 60,
                 width: 60,
                 decoration: BoxDecoration(
-                  color: Colors.green.shade100,
-                  shape: BoxShape.circle,
+                  color: const Color.fromARGB(255, 235, 239, 235),
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(12),
-                  child: Image.asset(item.iconPath, fit: BoxFit.contain),
+                  child: SvgPicture.asset(item.iconPath, fit: BoxFit.contain),
+
+                  // Image.asset(item.iconPath, fit: BoxFit.contain),
                 ),
               ),
               const SizedBox(height: 8),
