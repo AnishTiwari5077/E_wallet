@@ -12,7 +12,7 @@ final List<Promo> promoList = [
     ),
   ),
   Promo(
-    imagePath: 'assets/images/promo_2.svg',
+    imagePath: 'assets/icon/special.jpg',
     destination: const PromoDetailScreen(
       title: 'New Arrivals',
       description: 'Check out our latest gadgets and accessories.',
@@ -20,7 +20,7 @@ final List<Promo> promoList = [
     ),
   ),
   Promo(
-    imagePath: 'assets/images/promo_3.svg',
+    imagePath: 'assets/icon/offer.jpg',
     destination: const PromoDetailScreen(
       title: 'Flash Deals',
       description: 'Limited time offers — grab them before they’re gone!',
