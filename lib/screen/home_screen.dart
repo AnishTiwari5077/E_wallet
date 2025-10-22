@@ -1,14 +1,15 @@
 import 'package:e_wallet/models/payment_item.dart';
-import 'package:e_wallet/models/promo_model.dart';
+
 import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
 import 'package:e_wallet/widgets/curved_navigation_bar.dart';
 import 'package:e_wallet/widgets/green_container.dart';
 import 'package:e_wallet/widgets/payment_grid_items.dart';
-import 'package:e_wallet/widgets/promo_card.dart';
+
 import 'package:e_wallet/widgets/promo_carosel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../models/promo_data.dart'; // contains promoList
@@ -20,7 +21,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('HomeScreen build called');
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       extendBody: true,
@@ -39,7 +39,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('HomeView build called');
     return Scaffold(
       appBar: AppBar(title: const Text('Responsive Layout')),
       body: SingleChildScrollView(
@@ -59,7 +58,7 @@ class HomeView extends StatelessWidget {
                   Image.asset('assets/Logo.png', height: 40),
                   InkWell(
                     onTap: () {
-                      print('tapped');
+                      //   print('tapped');
                     },
                     child: Container(
                       height: 40,
@@ -83,7 +82,7 @@ class HomeView extends StatelessWidget {
 
               // --- Balance/Actions Section ---
               const GreenContainerWithActions(),
-              const SizedBox(height: 24),
+              const SizedBox(height: 18),
 
               // --- Payment Items Section ---
               const Padding(
@@ -150,7 +149,7 @@ class HomeView extends StatelessWidget {
 
               // ✅ Single promo carousel (handles looping, auto-scroll, preview)
               SizedBox(
-                height: 230,
+                height: 300,
                 child: PromoCarousel(
                   promoList: promoList,
                   autoScrollDelay: const Duration(seconds: 3),
@@ -164,6 +163,25 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: SizedBox(
+          height: 20,
+          width: 20,
+          child: Container(
+            decoration: BoxDecoration(shape: BoxShape.circle),
+            child: SvgPicture.asset(
+              'assets/icon/qr.svg',
+              height: 20,
+              width: 20,
+            ),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
     );
+
+    //  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   }
 }
