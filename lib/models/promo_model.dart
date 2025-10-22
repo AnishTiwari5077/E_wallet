@@ -1,7 +1,8 @@
-class Promo {
-  final String? imageUrl;
-  final String title;
-  final String description;
+import 'package:flutter/material.dart';
 
-  const Promo({this.imageUrl, required this.title, required this.description});
+class Promo {
+  final String imagePath; // local asset (SVG or PNG)
+  final Widget? destination; // screen to open on tap
+
+  const Promo({required this.imagePath, this.destination});
 }
