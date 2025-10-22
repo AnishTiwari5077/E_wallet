@@ -185,16 +185,10 @@ class HomeView extends StatelessWidget {
                   autoScrollDelay: const Duration(seconds: 3),
                 ),
               ),
-              const SizedBox(height: 24),
-              const Text('heello'),
-              const SizedBox(height: 24),
-              const Text('heello'),
             ],
           ),
         ),
       ),
-      // ❌ REMOVED: floatingActionButton: ...
-      // ❌ REMOVED: floatingActionButtonLocation: ...
     );
   }
 }
