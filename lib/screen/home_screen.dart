@@ -1,17 +1,14 @@
 import 'package:e_wallet/models/payment_item.dart';
-
 import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
 import 'package:e_wallet/widgets/curved_navigation_bar.dart';
 import 'package:e_wallet/widgets/green_container.dart';
 import 'package:e_wallet/widgets/payment_grid_items.dart';
-
 import 'package:e_wallet/widgets/promo_carosel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
 import '../models/promo_data.dart'; // contains promoList
 
 class HomeScreen extends StatelessWidget {
@@ -23,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueAccent,
+      // ✅ We retain extendBody: true to let the body content go behind the bottom nav bar
       extendBody: true,
       body: Consumer<NavigationProvider>(
         builder: (context, nav, child) {
@@ -30,6 +28,42 @@ class HomeScreen extends StatelessWidget {
         },
       ),
       bottomNavigationBar: const CurvedBottomNavBar(),
+
+      // ✅ CONDITIONAL FLOATING ACTION BUTTON
+      // We read the provider here to decide whether to render the FAB at all.
+      floatingActionButton: Consumer<NavigationProvider>(
+        builder: (context, nav, child) {
+          // Only return the FAB widget if the current index is 0 (HomeView)
+          if (nav.currentIndex == 0) {
+            return FloatingActionButton(
+              onPressed: () {},
+              backgroundColor: Colors.green, // Ensure your FAB styling is here
+              shape: const CircleBorder(),
+              child: SizedBox(
+                height: 24, // Increased size for visibility, adjust as needed
+                width: 24,
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/icon/qr.svg',
+                    height: 20,
+                    width: 20,
+                    colorFilter: const ColorFilter.mode(
+                      Colors.white,
+                      BlendMode.srcIn,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+          // Return null if it's not the home screen (index != 0)
+          return const SizedBox.shrink();
+        },
+      ),
+
+      // ✅ Use the Scaffold's location property for fixed positioning
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 }
@@ -42,8 +76,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Responsive Layout')),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
-
+        physics: const AlwaysScrollableScrollPhysics(), // Corrected syntax
         // physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -57,9 +90,7 @@ class HomeView extends StatelessWidget {
                 children: [
                   Image.asset('assets/Logo.png', height: 40),
                   InkWell(
-                    onTap: () {
-                      //   print('tapped');
-                    },
+                    onTap: () {},
                     child: Container(
                       height: 40,
                       width: 40,
@@ -147,7 +178,6 @@ class HomeView extends StatelessWidget {
                 ),
               ),
 
-              // ✅ Single promo carousel (handles looping, auto-scroll, preview)
               SizedBox(
                 height: 300,
                 child: PromoCarousel(
@@ -156,32 +186,15 @@ class HomeView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              Text('heello'),
+              const Text('heello'),
               const SizedBox(height: 24),
-              Text('heello'),
+              const Text('heello'),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: SizedBox(
-          height: 20,
-          width: 20,
-          child: Container(
-            decoration: BoxDecoration(shape: BoxShape.circle),
-            child: SvgPicture.asset(
-              'assets/icon/qr.svg',
-              height: 20,
-              width: 20,
-            ),
-          ),
-        ),
-      ),
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.miniCenterDocked,
+      // ❌ REMOVED: floatingActionButton: ...
+      // ❌ REMOVED: floatingActionButtonLocation: ...
     );
-
-    //  floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   }
 }
