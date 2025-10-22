@@ -1,12 +1,16 @@
 import 'package:e_wallet/models/payment_item.dart';
+import 'package:e_wallet/models/promo_model.dart';
 import 'package:e_wallet/provider/navigation_provider.dart';
 import 'package:e_wallet/screen/profile_screen.dart';
 import 'package:e_wallet/screen/setting_screen.dart';
 import 'package:e_wallet/widgets/curved_navigation_bar.dart';
 import 'package:e_wallet/widgets/green_container.dart';
 import 'package:e_wallet/widgets/payment_grid_items.dart';
+import 'package:e_wallet/widgets/promo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../models/promo_data.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,6 +20,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final promoData = PromoData().promoData;
+
     print('HomeScreen build called1');
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 218, 215, 204),
@@ -97,7 +103,8 @@ class HomeView extends StatelessWidget {
                             SizedBox(height: 50),
                             GreenContainerWithActions(), // Spacing between rows
                           ],
-                        ), // Spacing between rows
+                        ),
+                        SizedBox(height: 24),
                       ],
                     ),
                   ),
@@ -155,7 +162,7 @@ class HomeView extends StatelessWidget {
                     onTap: () {},
                   ),
                 ],
-              ), // Widget for responsive payment items
+              ),
             ],
           ),
         ),
