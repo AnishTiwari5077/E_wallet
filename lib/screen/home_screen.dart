@@ -143,12 +143,12 @@ class HomeView extends StatelessWidget {
                   PaymentItem(
                     name: 'College payment',
 
-                    iconPath: 'assets/icon.png',
+                    iconPath: 'assets/icon/elecricity.svg',
                     onTap: () {},
                   ),
                   PaymentItem(
-                    name: 'e',
-                    iconPath: 'assets/icon.png',
+                    name: 'Bank Transfer',
+                    iconPath: 'assets/icon/elecricity.svg',
                     onTap: () {},
                   ),
                   PaymentItem(
