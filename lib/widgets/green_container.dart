@@ -84,6 +84,7 @@ class GreenContainerWithActions extends StatelessWidget {
           alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+
             children: [
               Container(
                 width: 32,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../models/payment_item.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,43 +17,48 @@ class PaymentItemsGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: safeItems.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4, // 4 columns per row
+        crossAxisCount: 4,
         mainAxisSpacing: 16,
         crossAxisSpacing: 16,
-        childAspectRatio: 0.8, // adjust to control spacing between icon/text
+        childAspectRatio: 0.9,
       ),
       itemBuilder: (context, index) {
         final item = safeItems[index];
         return GestureDetector(
           onTap: item.onTap,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: 60,
-                width: 60,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 235, 239, 235),
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(10),
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 60,
+                  width: 60,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 235, 239, 235),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: SvgPicture.asset(item.iconPath, fit: BoxFit.contain),
+                  ),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: SvgPicture.asset(item.iconPath, fit: BoxFit.contain),
-
-                  // Image.asset(item.iconPath, fit: BoxFit.contain),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: 70, // help prevent text overflow
+                  child: Text(
+                    item.name,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                item.name,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
