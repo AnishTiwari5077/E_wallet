@@ -90,7 +90,14 @@ class HomeView extends StatelessWidget {
                 children: [
                   Image.asset('assets/Logo.png', height: 40),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const SettingScreen(),
+                        ),
+                      );
+                    },
                     child: Container(
                       height: 40,
                       width: 40,
